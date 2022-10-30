@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'checkstyle'
+    id 'application'
 }
 
 group 'hexlet.code'
@@ -7,6 +9,10 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass = 'hexlet.code.App'
 }
 
 compileJava {
@@ -20,4 +26,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+        html.stylesheet resources.text.fromFile('config/xsl/checkstyle-simple.xsl')
+    }
+}
+
+checkstyle {
+    toolVersion '9.2.1'
 }
