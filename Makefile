@@ -1,0 +1,2 @@
+clean:
+	./app/gradlew clean
