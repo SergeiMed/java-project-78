@@ -15,18 +15,18 @@ public class StringSchemaTest {
     }
 
     @Test
-    public void testStringSchemaEmptyStringIsValid() {
+    public void testEmptyStringIsValid() {
         Assertions.assertTrue(stringSchema.isValid(""));
         Assertions.assertTrue(stringSchema.isValid(null));
     }
 
     @Test
-    public void testStringSchemaNotEmptyStringIsValid() {
+    public void testNotEmptyStringIsValid() {
         Assertions.assertTrue(stringSchema.required().isValid("some text"));
     }
 
     @Test
-    public void testStringSchemaContainsIsValid() {
+    public void testContainsIsValid() {
         Assertions.assertTrue(stringSchema.required().contains("ome").isValid("some text"));
         Assertions.assertFalse(stringSchema.isValid("hello"));
     }
