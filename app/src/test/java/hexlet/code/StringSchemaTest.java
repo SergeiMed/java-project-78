@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 public class StringSchemaTest {
 
     private StringSchema stringSchema;
+    private static final int MIN_LENGTH = 15;
 
     @BeforeEach
     private void setup() {
@@ -21,21 +22,22 @@ public class StringSchemaTest {
 
     @Test
     public void testStringSchemaNotEmptyStringIsValid() {
-        Assertions.assertTrue(stringSchema.required().isValid("something"));
+        Assertions.assertTrue(stringSchema.required().isValid("some text"));
     }
 
     @Test
     public void testStringSchemaContainsIsValid() {
-        Assertions.assertTrue(stringSchema.required().contains("thin").isValid("something"));
-        Assertions.assertFalse(stringSchema.isValid("Hello"));
+        Assertions.assertTrue(stringSchema.required().contains("ome").isValid("some text"));
+        Assertions.assertFalse(stringSchema.isValid("hello"));
     }
 
     @Test
     public void testIsValid() {
-        stringSchema.required().contains("example").minLength(15);
+        stringSchema.required().contains("example").minLength(MIN_LENGTH);
         Assertions.assertTrue(stringSchema.isValid("String for example"));
         Assertions.assertFalse(stringSchema.isValid(""));
         Assertions.assertFalse(stringSchema.isValid("for example"));
         Assertions.assertFalse(stringSchema.isValid("string string string exam"));
+        Assertions.assertFalse(stringSchema.isValid(null));
     }
 }
