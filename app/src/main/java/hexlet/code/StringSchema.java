@@ -1,24 +1,8 @@
 package hexlet.code;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 
-public class StringSchema {
-
-    private final List<Predicate<String>> options = new ArrayList<>();
-
-    public final boolean isValid(String testString) {
-        if (!options.isEmpty() && testString == null) {
-            return false;
-        }
-        for (Predicate<String> option : options) {
-            if (!option.test(testString)) {
-                return false;
-            }
-        }
-        return true;
-    }
+public class StringSchema extends BaseSchema<String> {
 
     public final StringSchema required() {
         options.add(isEmpty());
