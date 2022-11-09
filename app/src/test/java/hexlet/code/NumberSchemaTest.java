@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.schemas.NumberSchema;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,6 +26,7 @@ public class NumberSchemaTest {
     public void testEmptySchema() {
         Assertions.assertTrue(numberSchema.isValid(null));
         Assertions.assertTrue(numberSchema.isValid(TEST_NUMBER_ZERO));
+        Assertions.assertTrue(numberSchema.isValid(TEST_NUMBER_SIXTY));
     }
 
     @Test
