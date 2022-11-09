@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,19 +16,22 @@ public class StringSchemaTest {
     }
 
     @Test
-    public void testEmptyStringIsValid() {
+    public void testEmptySchema() {
         Assertions.assertTrue(stringSchema.isValid(""));
         Assertions.assertTrue(stringSchema.isValid(null));
+        Assertions.assertTrue(stringSchema.isValid("some text"));
     }
 
     @Test
-    public void testNotEmptyStringIsValid() {
+    public void testNotEmptySchema() {
         Assertions.assertTrue(stringSchema.required().isValid("some text"));
+        Assertions.assertFalse(stringSchema.isValid(""));
+        Assertions.assertFalse(stringSchema.isValid(null));
     }
 
     @Test
-    public void testContainsIsValid() {
-        Assertions.assertTrue(stringSchema.required().contains("ome").isValid("some text"));
+    public void testContainsSchema() {
+        Assertions.assertTrue(stringSchema.required().contains("some").isValid("some text"));
         Assertions.assertFalse(stringSchema.isValid("hello"));
     }
 
