@@ -17,3 +17,6 @@ checkTest:
 
 build:
 	./gradlew build
+
+jacoco:
+	gradle jacocoTestReport
