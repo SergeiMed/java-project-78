@@ -28,5 +28,5 @@ jobs:
         with:
           workingDirectory: app
           coverageCommand: make jacoco
-          uses: cc-test-reporter after-build
+          uses: cc-test-reporter after-build --debug
           coverageLocations: ${{github.workspace}}app/build/customJacocoReportDir/test/jacocoTestReport.xml:jacoco
