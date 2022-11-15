@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-app,hexlet.code.schemas,NumberSchema,0,48,1,5,0,8,1,9,0,7
-app,hexlet.code.schemas,StringSchema,0,51,1,5,0,8,1,10,0,8
-app,hexlet.code.schemas,MapSchema,0,54,0,2,0,9,0,9,0,8
-app,hexlet.code,Validator,0,15,0,0,0,4,0,4,0,4
-app,hexlet.code,App,4,0,0,0,2,0,2,0,2,0
-app,hexlet.code,BaseSchema,0,40,0,8,0,9,0,6,0,2
