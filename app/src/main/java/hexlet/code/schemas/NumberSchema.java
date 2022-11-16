@@ -15,12 +15,13 @@ public final class NumberSchema extends BaseSchema {
     }
 
     public NumberSchema positive() {
-        checkList.add(x -> (Integer) x > 0);
+        checkList.add(x -> Integer.parseInt(x.toString()) > 0);
         return this;
     }
 
     public NumberSchema range(int beginNumber, int endNumber) {
-        checkList.add(x -> beginNumber <= (Integer) x && (Integer) x <= endNumber);
+        checkList.add(x -> beginNumber <= Integer.parseInt(x.toString())
+                && Integer.parseInt(x.toString()) <= endNumber);
         return this;
     }
 }
