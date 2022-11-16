@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema<T> {
+public abstract class BaseSchema {
 
-    protected List<Predicate<T>> checkList = new ArrayList<>();
+    protected List<Predicate<Object>> checkList = new ArrayList<>();
 
-    public abstract Predicate<T> isNotEmpty();
+    public abstract Predicate<Object> isNotEmpty();
 
-    public final boolean isValid(T testObject) {
+    public final boolean isValid(Object testObject) {
         if (testObject == null) {
             return !checkList.contains(isNotEmpty());
         }
-        for (Predicate<T> check : checkList) {
+        for (Predicate<Object> check : checkList) {
             if (!check.test(testObject)) {
                 return false;
             }
