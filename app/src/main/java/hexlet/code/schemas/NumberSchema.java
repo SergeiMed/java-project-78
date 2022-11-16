@@ -11,7 +11,7 @@ public final class NumberSchema extends BaseSchema {
     }
 
     public Predicate<Object> isNotEmpty() {
-        return Objects::nonNull;
+        return x -> x instanceof Integer;
     }
 
     public NumberSchema positive() {
