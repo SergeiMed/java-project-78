@@ -7,12 +7,15 @@ import java.util.function.Predicate;
 public abstract class BaseSchema {
 
     protected List<Predicate<Object>> checkList = new ArrayList<>();
+    protected boolean required;
 
-    public abstract Predicate<Object> isNotEmpty();
+    protected final void addCheck(Predicate<Object> check) {
+        checkList.add(check);
+    }
 
     public final boolean isValid(Object testObject) {
         if (testObject == null) {
-            return !checkList.contains(isNotEmpty());
+            return !required;
         }
         for (Predicate<Object> check : checkList) {
             if (!check.test(testObject)) {
