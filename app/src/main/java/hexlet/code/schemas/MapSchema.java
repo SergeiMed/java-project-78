@@ -5,6 +5,7 @@ import java.util.Map;
 public final class MapSchema extends BaseSchema {
 
     public MapSchema required() {
+        addCheck(value -> value instanceof Map<?,?>);
         required = true;
         return this;
     }

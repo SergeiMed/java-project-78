@@ -4,6 +4,7 @@ public final class NumberSchema extends BaseSchema {
 
     public NumberSchema required() {
         required = true;
+        addCheck(value -> value instanceof Integer);
         return this;
     }
 

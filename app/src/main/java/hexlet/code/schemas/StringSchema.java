@@ -4,6 +4,7 @@ public final class StringSchema extends BaseSchema {
 
     public StringSchema required() {
         required = true;
+        addCheck(value -> value instanceof String);
         addCheck(value -> !value.equals(""));
         return this;
     }
