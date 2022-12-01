@@ -1,12 +1,18 @@
 package hexlet.code.schemas;
 
 import java.util.Map;
+import java.util.function.Predicate;
 
 public final class MapSchema extends BaseSchema {
 
+    @Override
+    protected Predicate<Object> checkFormat() {
+        return value -> value instanceof Map<?, ?>;
+    }
+
     public MapSchema required() {
-        addCheck(value -> value instanceof Map<?, ?>);
         required = true;
+        addCheck(checkFormat());
         return this;
     }
 
@@ -20,4 +26,6 @@ public final class MapSchema extends BaseSchema {
                 .allMatch(value -> map.get(value).isValid(((Map<?, ?>) testMap).get(value))));
         return this;
     }
+
+
 }

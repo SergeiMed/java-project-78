@@ -1,10 +1,17 @@
 package hexlet.code.schemas;
 
+import java.util.function.Predicate;
+
 public final class NumberSchema extends BaseSchema {
+
+    @Override
+    protected Predicate<Object> checkFormat() {
+        return value -> value instanceof Integer;
+    }
 
     public NumberSchema required() {
         required = true;
-        addCheck(value -> value instanceof Integer);
+        addCheck(checkFormat());
         return this;
     }
 
